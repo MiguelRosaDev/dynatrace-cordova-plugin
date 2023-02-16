@@ -8,17 +8,26 @@
 
     <hook type="after_plugin_install" src="scripts/Install.js"/>
     <hook type="before_plugin_uninstall" src="scripts/Uninstall.js"/>
-	<hook type="after_prepare" src="scripts/Instrument.js"/>
-	<hook type="after_build" src="scripts/CloseLog.js" />
-	<hook type="after_run" src="scripts/CloseLog.js" />
+    <hook type="after_prepare" src="scripts/Instrument.js"/>
+    <hook type="after_build" src="scripts/CloseLog.js" />
+    <hook type="after_run" src="scripts/CloseLog.js" />
 	
-	<hook src="scripts/Outsystems/npmInstall.js" type="before_plugin_install"/>
-	<hook src="scripts/Outsystems/copyConfig.js" type="before_prepare"/>
+    <hook src="scripts/Outsystems/npmInstall.js" type="before_plugin_install"/>
+    <hook src="scripts/Outsystems/copyConfig.js" type="before_prepare"/>
 
     <js-module src="networking/NativeNetworkInterceptorUtils.js" name="native-network-interceptor-utils" />
     <js-module src="networking/MobileFirstNetworkInterceptor.js" name="mobile-first-network-interceptor" />
+	
     <js-module src="other/DynatraceCordovaPlugin.js" name="dynatraceMobile">
         <clobbers target="dynatraceMobile"/>
+    </js-module>
+	
+    <js-module src="other/IdentifyUserNative.js" name="identifyUserNative">
+        <clobbers target="window.plugins.identifyUserNative" />
+    </js-module>
+	 
+    <js-module src="other/dtrum-swallow-api.js" name="dtrum">
+	  <clobbers target="window.plugins.dtrum"/>
     </js-module>
 	
     <!-- ios -->
